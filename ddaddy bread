@@ -160,26 +160,7 @@ if game.PlaceId == Ids[3] then
     )
 
     coroutine.resume(track)
-
-    local CameraFollow =
-        coroutine.create(
-        function()
-            if Settings.BrolyCamera == true then
-                game:GetService("RunService").Stepped:Connect(
-                    function()
-                        game.Workspace.CurrentCamera.CFrame =
-                            CFrame.new(
-                            Client.Character.HumanoidRootPart.Position,
-                            game:GetService("Workspace").Live["Broly BR"].HumanoidRootPart.Position
-                        ) * CFrame.new(0, 2, 20)
-                    end
-                )
-                if Settings.BrolyCamera == false then
-                    print("Broly Camera is false")
-                end
-            end
-        end
-    )
+    
     local DamageChecker =
         coroutine.create(
         function()
@@ -193,7 +174,6 @@ if game.PlaceId == Ids[3] then
     )
 
     coroutine.resume(DamageChecker)
-    coroutine.resume(CameraFollow)
 
     local GoGod =
         coroutine.create(
@@ -308,17 +288,6 @@ if game.PlaceId == Ids[3] then
     elseif Settings.TeamDamage == false then
         print("TeamDamage is false")
     end
-    local GrabCheck =
-        coroutine.create(
-        function()
-            wait(.5)
-            if not game.Workspace.Live["Broly BR"]:FindFirstChild("Override") then
-                game:GetService("TeleportService"):Teleport(Ids[2], LocalPlayer)
-            end
-        end
-    )
-
-    coroutine.resume(GrabCheck)
 
     coroutine.resume(AutoHit)
     local RejoinTime =
@@ -422,30 +391,6 @@ if game.PlaceId == Ids[3] then
     elseif Settings.AnimateFreeze == false then
         print("Animation is Running")
     end
-    local GrabLol =
-        coroutine.create(
-        function()
-            while wait() do
-                for i, v in pairs(Client.Character:GetChildren()) do
-                    if v.Name == "Override" and Client.Character.Ki.Value == Client.Character.Ki.MaxValue then
-                        game.Workspace.Live[Client.Name].Head:Destroy()
-                    elseif
-                        v.Name == "Override" and Client.Character.Ki.Value < Client.Character.Ki.MaxValue * .99 and
-                            game.Workspace.Live["Broly BR"].Damagers["CakeHasTheBelt"]
-                     then
-                        print("nigger lover")
-                        v:FindFirstChild("Override"):Destroy()
-                    end
-                    wait(Settings.FirstForm)
-                    if game.Workspace.Live["Broly BR"].Humanoid.MaxHealth < 1350 then
-                        game.Players.LocalPlayer:Kick()
-                    end
-                end
-            end
-        end
-    )
-
-    coroutine.resume(GrabLol)
 
 -- [[ Output Change ]]
 
