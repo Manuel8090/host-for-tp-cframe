@@ -22,7 +22,7 @@ Settings = {
     FirstForm = 80, -- the time it takes for brolies Super Saiyan form, this helps a little bit if you are grabbed
     AnimateFreeze = true, -- Breaks your animator but youre still allowed to attack
     invis = false, -- Determines whether your invisible or not, a good alternitive to carry mode so you dont get queued with a lot of people
-    waittime = 0, -- the time it waits after it loads
+    waittime = .8, -- the time it waits after it loads
     
         OutputChange = true, -- changes output when low ki
         Amount = 100 -- the amount will be left doesnt go lower than 5, in intervals of 5 aswell 100, 95, 90, 85, ect...
@@ -41,6 +41,8 @@ wait(Settings.waittime)
 
 -- [[ Variables ]]
 
+
+wait(8)
 local Rootpart = game.Players.LocalPlayer.Character.HumanoidRootPart
 local Client = game.Players.LocalPlayer
 local Ids = {
