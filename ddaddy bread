@@ -219,15 +219,13 @@ if game.PlaceId == Ids[3] then
         coroutine.create(
         function()
             -- Always wrap a function so the wrap has something to run
-            game:GetService("RunService").RenderStepped:connect(
-                function()
+            while wait() do
                     Rootpart.CFrame =
                     CFrame.new(game.Workspace.Live.juan100m1.HumanoidRootPart.Position
                     ) * CFrame.new(0, 0 , 0)
                     game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
                     game:GetService("Workspace").Camera.FieldOfView = 120
                 end
-            )
         end
     )
     coroutine.resume(frameLoop)
